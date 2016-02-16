@@ -4,22 +4,17 @@
         <title>CIDM 4385 Quizzing Program</title>
         <script src="angular.min.js"></script>
         <script src="app.js"></script>
+        <script lang="javascript"></script>
+        <link rel="stylesheet" href="style.css" />
     </head>
     
     <body>
         <div ng-controller="QuizzingProgram as qp">
-                <div ng-controller="ButtonController as bc">
-                <button ng-click="cc.FtoC()" ><a href="#" ng-click="bc.show()">Call name and question</button><br/>
-                <button ng-click="cc.FtoC()" ><a href="#">View students in bank</button><br/>
-                <button ng-click="cc.FtoC()" ><a href="#">View questions in bank</button><br/>
-
-                <!--buttons to call the functions-->
-                <button ng-click="cc.FtoC()" ng-hide="bc.show_fahrenheit"><a href="#" ng-click="bc.show()">Convert to Celsius</button><br />
-                <button ng-click="cc.CtoF()" ng-hide="bc.show_celsius"><a hre="#" ng-click="bc.hide()">Convert to Fahrenheit</a></button><br /><br />
-            
-                <!--showing converstions-->
-                <div ng-hide="bc.show_celsius" >Celsius Temperature: {{cc.celsius}}</div>
-                <div ng-hide="bc.show_fahrenheit">Fahrenheit Temperature: {{cc.fahrenheit}}</div>
+                <button ng-click="qp.studentPicker()" ><a href="#">Show a random name (or volunteer!)</button><br/>
+                <button ng-click="qp.questionPicker()" ><a href="#">Show a random question</button><br/>
+                
+                <div>Student: {{qp.studentPick}}</div>
+                <div>Question: {{qp.questionPick}}</div>
           </div>
         </div>
     </body>
