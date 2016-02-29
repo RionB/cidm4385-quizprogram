@@ -8,8 +8,12 @@ function($scope, studentListService, questionListService){
     
     
     //qc.question=['What is AngularJS?', 'How is AngularJS different from normal Javascript?', 'What use does the "this" keyword have?', 'What is $scope used for?', 'What are Controllers used for?'];
+    
+    
+    
+    qpc.getStudents();
 
-    qpc.students = [];
+    // qpc.students = [];
     
     qpc.students_completed = [];
     
@@ -61,7 +65,23 @@ function($scope, studentListService, questionListService){
         qpc.getNext();        
     }
     
-    qpc.getNext();
+    qpc.getStudents = function(){
+        studentListService.getStudentList()
+        .then(
+            // what to do if $http.get was successful
+            function(response){
+                console.log(response);
+                qpc.students = response.data;
+                qpc.getNext();
+            },
+            // what to do if $http.get was unsuccessful
+            function(response){
+                console.log(response);
+                qpc.students = [];
+            }
+        );
+    };
+    
     
 }]);
 

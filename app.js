@@ -1,12 +1,7 @@
 var quizModule = angular.module('QuizProgram', []);
 
 quizModule.controller('QuizProgramController',['$scope', function($scope){
-    
     var qpc = this;
-    
-    
-    //qc.question=['What is AngularJS?', 'How is AngularJS different from normal Javascript?', 'What use does the "this" keyword have?', 'What is $scope used for?', 'What are Controllers used for?'];
-
     qpc.students = 
     [
         {
@@ -130,9 +125,7 @@ quizModule.controller('QuizProgramController',['$scope', function($scope){
             incorrect: 0
         }
     ];
-    
     qpc.students_completed = [];
-    
     qpc.questions = 
     [
         {
@@ -158,9 +151,7 @@ quizModule.controller('QuizProgramController',['$scope', function($scope){
     ];
     
     qpc.questions_completed = [];
-    
     qpc.getNextQuestion = function(){
-        
         if(qpc.questions.length > 0){
             var index = Math.floor(Math.random() * qpc.questions.length);
             qpc.selected_question = qpc.questions[index];
@@ -175,7 +166,6 @@ quizModule.controller('QuizProgramController',['$scope', function($scope){
     }
     
     qpc.getNextStudent = function(){
-        
         if(qpc.students.length > 0){
             var index = Math.floor(Math.random() * qpc.students.length);
             qpc.selected_student = qpc.students[index];
