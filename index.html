@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html ng-app="QuizzingProgram">
+<html ng-app="QuizProgram">
     <head>
-        <title>CIDM 4385 Quizzing Program</title>
+        <title>Quiz Program</title>        
+        <link rel="stylesheet" href="bootstrap.min.css">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1>Quiz Program</h1>
+            <p>This is the quizzing program for CIDM4385.</p>
+        </div>
+        <div class="container">
+            <div ng-controller="QuizProgramController as qpc">
+                <p><span class="label label-default">Student:</span> {{qpc.selected_student.name}} - 
+                Correct: {{qpc.selected_student.correct}} - Incorrect: {{qpc.selected_student.incorrect}}</p>
+                <p><span class="label label-default">Question:</span> {{qpc.selected_question.text}}</p>
+                <p><span class="label label-default">Answer:</span> {{qpc.selected_question.answer}}</p>
+                <button type="button" class="btn btn-success" ng-click="qpc.doCorrect()">Correct</button>
+                <button type="button" class="btn btn-danger" ng-click="qpc.doIncorrect()">Incorrect</button>
+            </div>
+        </div>
         <script src="angular.min.js"></script>
         <script src="app.js"></script>
-        <script lang="javascript"></script>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    
-    <body>
-        <div ng-controller="QuizzingProgram as qp">
-                <button ng-click="qp.studentPicker()" ><a href="#">Show a random name (or volunteer!)</button><br/>
-                <button ng-click="qp.questionPicker()" ><a href="#">Show a random question</button><br/>
-                
-                <div>Student: {{qp.studentPick}}</div>
-                <div>Question: {{qp.questionPick}}</div>
-          </div>
-        </div>
     </body>
 </html>
