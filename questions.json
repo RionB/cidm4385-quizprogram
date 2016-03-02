@@ -12,11 +12,11 @@
             "answer": "directives and expressions"
         },
         {
-            "text": "You bootstrap your angular application with the ngApp directive", 
-            "answer": "true"
+            "text": "What do you bootstrap your angular application with?", 
+            "answer": "The ngApp directive"
         },
         {
-            "text": "AngularJS is fun", 
-            "answer": "Yes"
+            "text": "Is AngularJS fun?", 
+            "answer": "Yes!"
         }
     ]

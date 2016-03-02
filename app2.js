@@ -6,19 +6,9 @@ function($scope, studentListService, questionListService){
     
     var qpc = this;
     
-    
-    //qc.question=['What is AngularJS?', 'How is AngularJS different from normal Javascript?', 'What use does the "this" keyword have?', 'What is $scope used for?', 'What are Controllers used for?'];
-    
-    
-    
-    qpc.getStudents();
-
-    // qpc.students = [];
-    
     qpc.students_completed = [];
-    
-    qpc.questions = [];
-    
+
+    //qpc.questions = [];
     qpc.questions_completed = [];
     
     qpc.getNextQuestion = function(){
@@ -68,13 +58,29 @@ function($scope, studentListService, questionListService){
     qpc.getStudents = function(){
         studentListService.getStudentList()
         .then(
-            // what to do if $http.get was successful
+            // if $http.get was successful, do this
             function(response){
                 console.log(response);
                 qpc.students = response.data;
-                qpc.getNext();
+                qpc.getNextStudent();
             },
-            // what to do if $http.get was unsuccessful
+            // if $http.get was unsuccessful, do this
+            function(response){
+                console.log(response);
+                qpc.students = [];
+            }
+        );
+    };
+     qpc.getQuestions = function(){
+        questionListService.getQuestionList()
+        .then(
+            // if $http.get was successful, do this
+            function(response){
+                console.log(response);
+                qpc.questions = response.data;
+                qpc.getNextQuestion();
+            },
+            // if $http.get was unsuccessful, do this
             function(response){
                 console.log(response);
                 qpc.students = [];
@@ -82,6 +88,9 @@ function($scope, studentListService, questionListService){
         );
     };
     
+     // qpc.getNext();
+     qpc.getStudents();
+     qpc.getQuestions();
     
 }]);
 
