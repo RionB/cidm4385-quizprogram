@@ -46,8 +46,8 @@ function($scope, studentListService, questionListService, LocalStorageService){
     qpc.doCorrect = function(){
         qpc.selected_student.correct++;
         
-        console.log("length of students is: " + qpc.students.length);
-        console.log("length of students_completed is: " + qpc.students_completed.length);
+       // console.log("length of students is: " + qpc.students.length);
+       // console.log("length of students_completed is: " + qpc.students_completed.length);
         var wholeList = qpc.students.concat(qpc.students_completed);
         qpc.update(angular.toJson(wholeList));
         qpc.getNext();
@@ -55,8 +55,8 @@ function($scope, studentListService, questionListService, LocalStorageService){
     
     qpc.doIncorrect = function(){
         qpc.selected_student.incorrect++;
-        console.log("length of students is: " + qpc.students.length);
-        console.log("length of students_completed is: " + qpc.students_completed.length);        
+       // console.log("length of students is: " + qpc.students.length);
+      //  console.log("length of students_completed is: " + qpc.students_completed.length);        
         var wholeList = qpc.students.concat(qpc.students_completed);        
         qpc.update(angular.toJson(wholeList));
         qpc.getNext();        
@@ -72,10 +72,10 @@ function($scope, studentListService, questionListService, LocalStorageService){
     qpc.getStudents = function(){
         var fromStorage = qpc.fetch();
         
-        console.log(fromStorage);
+       // console.log(fromStorage);
         
         if(fromStorage){
-            console.log(fromStorage);
+          //  console.log(fromStorage);
             qpc.students = fromStorage;
             qpc.getNextStudent();
         }else{
@@ -83,13 +83,13 @@ function($scope, studentListService, questionListService, LocalStorageService){
                 .then(
                     // if $http.get was successful, do this
                     function(response){
-                        console.log(response);
+                      //  console.log(response);
                         qpc.students = response.data;
                         qpc.getNextStudent();
                     },
                     // if $http.get was unsuccessful, do this
                     function(response){
-                        console.log(response);
+                       // console.log(response);
                         qpc.students = [];
                     }
             );
@@ -101,13 +101,13 @@ function($scope, studentListService, questionListService, LocalStorageService){
         .then(
             // if $http.get was successful, do this
             function(response){
-                console.log(response);
+              //  console.log(response);
                 qpc.questions = response.data;
                 qpc.getNextQuestion();
             },
             // if $http.get was unsuccessful, do this
             function(response){
-                console.log(response);
+               // console.log(response);
                 qpc.questions = [];
             }
         );
