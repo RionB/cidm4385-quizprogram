@@ -6,15 +6,17 @@ function($scope, LocalStorageService){
 
 var mc = this;
 
-mc.getStudents();
+// mc.getStudents();
 
-myModule.factory('studentListService', ['$http', function($http){
-    var studentListService = {};
-    studentListService.getStudentList = function(){
-        return $http.get("students.json");
-    };
-    return studentListService;
-}]);
+// ////////// student factory /////////////////////
+// myModule.factory('studentListService', ['$http', function($http){
+//     var studentListService = {};
+//     studentListService.getStudentList = function(){
+//         return $http.get("students.json");
+//     };
+//     return studentListService;
+// }]);
+// ////////////////////////////////////////////////
 
 mc.latestData = function() {
     return LocalStorageService.getData();
@@ -27,6 +29,8 @@ mc.update = function(val) {
 mc.students = LocalStorageService.getData();
 
 
+
+////////////////////////// local storage factory //////////////////////////////////
 myModule.factory("LocalStorageService", function($window, $rootScope) {
     
     angular.element($window).on('storage', function(event){
@@ -38,6 +42,7 @@ myModule.factory("LocalStorageService", function($window, $rootScope) {
     return {
         setData: function(val) {
             $window.localStorage && $window.localStorage.setItem('my-storage', val);
+            console.log(this);
             return this;
         },
         getData: function() {
